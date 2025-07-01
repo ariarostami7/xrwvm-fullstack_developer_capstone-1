@@ -28,9 +28,12 @@ SECRET_KEY =\
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-CSRF_TRUSTED_ORIGINS = []
-
+#ALLOWED_HOSTS=['localhost','<your application URL here>']
+#CSRF_TRUSTED_ORIGINS=['<your application URL here>']
+# ALLOWED_HOSTS = ['localhost','<http://127.0.0.1:8000>','<http://127.0.0.1>'] no need of <> and should not contain http 
+# CSRF_TRUSTED_ORIGINS = ['<http://127.0.0.1:8000>','<http://127.0.0.1>'] not this <> should contain http, or https
+ALLOWED_HOSTS = ['localhost','127.0.0.1']  # FIX THE PROBLEM
+CSRF_TRUSTED_ORIGINS = ['<http://127.0.0.1:8000>']
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [],
 }
@@ -61,7 +64,11 @@ ROOT_URLCONF = 'djangoproj.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR,'frontend/static'), # added path recognize the front-end static files
+            os.path.join(BASE_DIR, 'frontend/build'),
+            os.path.join(BASE_DIR, 'frontend/build/static'),
+        ],  
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -73,7 +80,6 @@ TEMPLATES = [
         },
     },
 ]
-
 WSGI_APPLICATION = 'djangoproj.wsgi.application'
 
 
@@ -128,11 +134,24 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media')
 MEDIA_URL = '/media/'
+# os.path.join(BASE_DIR, 'frontend/build/static') # it was added to fix the register-page 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_DIRS = []
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'frontend/static'),  # add the directory for the Django application to look for static files at the bottom of the file
+                    os.path.join(BASE_DIR, 'frontend/build'),
+                    os.path.join(BASE_DIR, 'frontend/build/static'),
+                    ]
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
 

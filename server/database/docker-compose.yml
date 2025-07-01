@@ -1,4 +1,4 @@
-version: '3.9'
+# version: '3.9'
 
 services:
   # Mongodb service
@@ -10,14 +10,37 @@ services:
     restart: always
     volumes:
       - mongo_data:/data/db
+    networks:
+      - app_network
 
   # Node api service
   api:
+    # build:        # added and context too
+    #   context: .   # Ensures it builds from your local Dockerfile
+    build: . 
+    container_name: node_api
     image: nodeapp
     ports:
-      - 3030:3030
+      - "3030:3030"
     depends_on: 
       - mongo_db
+    # suggested by chatgpt
+    # entrypoint: ["sh", "-c", "until nc -z -v -w30 mongo_db 27017; do echo 'Waiting for MongoDB...'; sleep 5; done; node app.js"]
+    networks:
+      - app_network
+    # Ensure MongoDB is ready before starting the app
+    # entrypoint: ["sh", "-c", "sleep 10 && node app.js"]
+
+    volumes: 
+       - .:/usr/src/app
+    working_dir: /usr/src/app
+    command: >
+      sh -c "until nc -z mongo_db 27017; do echo 'Waiting for MongoDB...'; sleep 5; done && node app.js" 
 
 volumes:
   mongo_data: {}
+#  three line added by chatgpt
+# Define the missing network here
+networks:
+  app_network:
+    driver: bridge

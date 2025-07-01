@@ -1,0 +1,71 @@
+<!-- <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ dealer.name }} Details</title>
+</head>
+<body>
+    <h1>{{ dealer.name }}</h1>
+
+    <div>
+        <p><strong>ID:</strong> {{ dealer.id }}</p>
+    </div>
+
+    <div>
+        <p><strong>State:</strong> {{ dealer.zip_state }}</p>
+    </div>
+
+    <div>
+        <p><strong>Any Other Extras:</strong> </p>
+    </div>
+
+    <div>
+    <p><strong>Services Offered:</strong></p>
+    <ul>
+        {% for service in dealer.services_offered.all %}
+            <li>{{ service.name }}</li>
+        {% empty %}
+            <li>No services listed.</li>
+        {% endfor %}
+    </ul>
+</div>
+
+    <p><a href="{% url 'django-app:dealership_list' %}">Back to Dealership List</a></p>
+</body>
+</html> -->
+
+<!-- <div>
+    <p><strong>Service Center:</strong> {% if dealer.has_service_center %}Yes{% else %}No{% endif %}</p>
+</div> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ dealer.name }} Details</title>
+</head>
+<body>
+    <h1>{{ dealer.name }}</h1>
+
+    <div>
+        <p><strong>ID:</strong> {{ dealer.id }}</p>
+    </div>
+
+    <div>
+        <p><strong>State:</strong> {{ dealer.zip_state }}</p>
+    </div>
+
+    <div>
+        <p><strong>Has Service Center:</strong> {% if dealer.has_service_center %}Yes{% else %}No{% endif %}</p>
+    </div>
+
+    <div>
+        <p><strong>Any Other Extras:</strong> </p>
+        {# You can add more extra information here following the same pattern #}
+    </div>
+
+    <p><a href="{% url 'django-app:dealership_list' %}">Back to Dealership List</a></p>
+</body>
+</html> --> 

@@ -1,2 +1,11 @@
-Flask
-nltk
+# Flask
+# nltk
+# # Flask==2.3.2  # Or your desired Flask version
+# # nltk==3.8.1   # Or your desired NLTK version
+# # gunicorn==21.2.0 # Add this line
+# # python-dotenv==1.0.0 # Also re-add this if you want to use .env for local dev as discussed
+
+Flask==2.3.2
+nltk==3.8.1
+gunicorn==21.2.0  # <--- THIS LINE IS ABSOLUTELY ESSENTIAL
+python-dotenv==1.0.1

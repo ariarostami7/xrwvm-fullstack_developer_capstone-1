@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <tile>Car list</tile>
+</head>
+<body>
+    <h1>Car Makes</h1>
+    <ul>
+        {% for car_make in car_makes %}
+            <li>{{ car_make.name }} - {{ car_make.description }} </li>
+        {% endfor %}
+    </ul>
+
+    <h1>Car Models</h1>
+    <ul>
+        {% for car_model in car_models %}
+            <li>
+                {{ car_model.name }} ({{ car_model.car_make.name , {{ car_model.year }}, {{car_type}})
+            </li>
+        {% endfor %}
+    </ul>
+    <button data-url="{% url 'car_list' %}" onclick="window.location.href = this.dataset.url;">Get Cars</button>
+</body>
+</html>
+
+
+<!-- // In your frontend JavaScript file
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    fetch('http://127.0.0.1:8000/login/', {
+        method: 'POST', // --- THIS IS THE CRITICAL PART!
+        headers: {
+            'Content-Type': 'application/json',
+            // If you are NOT using @csrf_exempt on the backend, you'd also need:
+            // 'X-CSRFToken': 'your-csrf-token-from-django-cookie'
+        },
+        body: JSON.stringify({ // Send data as JSON
+            userName: username, // Make sure key matches 'userName' in your Python code
+            password: password
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Login Response:', data);
+        if (data.status === "Authenticated") {
+            alert("Login successful!");
+            // Redirect or update UI
+        } else {
+            alert("Login failed: " + data.status);
+        }
+    })
+    .catch(error => {
+        console.error('Error during login:', error);
+        alert("An error occurred during login.");
+    });
+}); 
+  })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Login Response:', data);
+        if (data.status === "Authenticated") {
+            alert("Login successful!");
+            // Redirect or update UI
+        } else {
+            alert("Login failed: " + data.status);
+        }
+    })
+    .catch(error => {
+        console.error('Error during login:', error);
+        alert("An error occurred during login.");
+    });
+});-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

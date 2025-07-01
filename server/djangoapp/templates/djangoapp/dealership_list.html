@@ -1,0 +1,49 @@
+<!-- <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ dealer.name }} Details</title>
+</head>
+<body>
+    <h1>{{ dealer.name }}</h1>
+
+    <div>
+        <p><strong>ID:</strong> {{ dealer.id }}</p>
+    </div>
+
+    <div>
+        <p><strong>Location:</strong> {{ dealer.city }}, {{ dealer.zip_state }}</p>
+    </div>
+
+    <div>
+        <p><strong>Address:</strong> {{ dealer.address }}</p>
+    </div>
+
+    <p><a href="{% url 'django-app:get_dealers' %}">Back to Dealership List</a></p>
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dealerships</title>
+</head>
+<body>
+    <h1>List of Dealerships</h1>
+
+    <ul>
+        {% for dealer in dealers %}
+            <li>
+                <a href="{% url 'django-app:dealer_details' dealer.id %}">{{ dealer.name }}</a>
+                ({{ dealer.city }}, {{ dealer.zip_state }})
+            </li>
+        {% empty %}
+            <li>No dealerships available.</li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="/">Back to Home</a></p>
+</body>
+</html> -->
